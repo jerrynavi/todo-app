@@ -11,7 +11,7 @@ class ErrorPage extends Component {
     render(): JSX.Element {
         return <>
             <Helmet>
-                <title>Oops! Page not found!</title>
+                <title>Oops! Page not found! - ToDo App</title>
             </Helmet>
             <div className={styles.error} style={{ textAlign: 'center' }}>
                 <Title>

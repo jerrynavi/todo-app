@@ -1,5 +1,8 @@
-import { State } from '../interfaces/State';
+import { State } from '../interfaces/state.interface';
 
 export const state: State = {
-    data: null
+    todos: [],
+    app: {
+        shouldSaveOffline: false,
+    },
 };

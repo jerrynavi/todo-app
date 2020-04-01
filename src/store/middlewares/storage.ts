@@ -5,9 +5,20 @@
 
 import storageModule from 'store2';
 import { STORE_NAME } from '../../utils/';
+import { EnhancedStore } from '@reduxjs/toolkit';
+import { State } from '../../interfaces/state.interface';
 
-export const storage = (store: any) => (next: any) => (action: any): any => {
+const saveState = (state: State): void => {
+    storageModule.set(STORE_NAME, state);
+};
+
+export const storage = (store: EnhancedStore<State>) => (next: any) => (action: any): any => {
     const result = next(action);
-    Promise.resolve(storageModule.set(STORE_NAME, store.getState()));
+    Promise.resolve(() => {
+        const state = store.getState();
+        if (state.app.shouldSaveOffline) {
+            saveState(state);
+        }
+    });
     return result;
 };
