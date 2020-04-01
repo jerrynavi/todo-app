@@ -1,1 +1,3 @@
-export const CUSTOM_DATA_UPDATE = 'CUSTOM_DATA_UPDATE';
+export const ADD_TODO = 'ADD_TODO';
+export const EDIT_TODO = 'EDIT_TODO';
+export const DELETE_TODO = 'DELETE_TODO';
