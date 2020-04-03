@@ -14,7 +14,7 @@ export const todoReducer = createReducer(state.todos, {
         const now = moment();
         const id = randomBytes(2).toString('hex') + '_' + now.valueOf();
         const todosSlice = todos.slice();
-        todosSlice.push({
+        todosSlice.unshift({
             ...payload,
             id,
             isDone: false,
