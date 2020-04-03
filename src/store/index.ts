@@ -14,6 +14,6 @@ export const store = configureStore({
         todos: todoReducer,
         app: appReducer,
     },
-    middleware: [...getDefaultMiddleware(), storage as any],
-    preloadedState
+    middleware: [...getDefaultMiddleware(), storage],
+    preloadedState,
 });
