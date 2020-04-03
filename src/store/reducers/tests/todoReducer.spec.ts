@@ -17,7 +17,7 @@ it('should add TODO', () => {
             payload: {
                 title: 'Complete a task',
             },
-        })
+        }),
     ).toHaveLength(2);
 });
 
@@ -26,7 +26,7 @@ it('should delete TODO', () => {
         todoReducer(mockState, {
             type: actions.DELETE_TODO,
             payload: '123456',
-        })
+        }),
     ).toHaveLength(0);
 });
 
@@ -40,14 +40,14 @@ it('should change TODO to done', () => {
                     id: '123456',
                     title: 'Default task',
                     isDone: true,
-                }
-            }
-        })
+                },
+            },
+        }),
     ).toEqual([
         {
             id: '123456',
             title: 'Default task',
             isDone: true,
-        }
+        },
     ]);
 });
