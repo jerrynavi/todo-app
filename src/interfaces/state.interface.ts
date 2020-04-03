@@ -4,5 +4,6 @@ export interface State {
     todos: Todo[];
     app: {
         shouldSaveOffline: boolean;
+        isProcessing: boolean;
     };
 }

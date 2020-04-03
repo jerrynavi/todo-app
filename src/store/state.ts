@@ -4,5 +4,6 @@ export const state: State = {
     todos: [],
     app: {
         shouldSaveOffline: false,
+        isProcessing: false,
     },
 };
