@@ -38,6 +38,10 @@
         "eqeqeq": "warn",
         "react/prop-types": "off",
         "@typescript-eslint/no-explicit-any": "off",
-        "@typescript-eslint/camelcase": "warn"
+        "@typescript-eslint/camelcase": "warn",
+        "comma-dangle": [
+            "error",
+            "always-multiline"
+        ]
     }
 }
