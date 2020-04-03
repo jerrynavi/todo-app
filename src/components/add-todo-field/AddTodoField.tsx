@@ -1,6 +1,6 @@
 import React, { FC, useState } from 'react';
 import { connect } from 'react-redux';
-import { Form, Input, Row, Col, Button, Typography } from 'antd';
+import { Form, Input, Row, Col, Button, Typography, Switch } from 'antd';
 import styles from './AddTodoField.module.scss';
 import { AnyAction } from '@reduxjs/toolkit';
 import { actions } from '../../utils';
@@ -40,6 +40,7 @@ const AddTodoField: FC<Props> = (props): JSX.Element => {
             dispatch({ type: actions.TOGGLE_PROCESSING_STATE });
         }, 500);
         form.resetFields();
+        setCharsLeft(INPUT_LIMIT);
     };
 
     return (
@@ -53,7 +54,7 @@ const AddTodoField: FC<Props> = (props): JSX.Element => {
 
                 <Row gutter={[12,0]}>
 
-                    <Col span={20}>
+                    <Col xs={24} lg={20}>
                         <Item
                             name="title"
                             rules={[
@@ -90,7 +91,7 @@ const AddTodoField: FC<Props> = (props): JSX.Element => {
                         </Item>
                     </Col>
 
-                    <Col span={4}>
+                    <Col xs={24} lg={4}>
                         <Button
                             type="primary"
                             htmlType="submit"
@@ -103,6 +104,36 @@ const AddTodoField: FC<Props> = (props): JSX.Element => {
 
                 </Row>
             </Form>
+
+            <div className="px-8">
+                <div
+                    style={{
+                        display: 'flex',
+                        justifyContent: 'flex-end',
+                    }}
+                >
+                    <Item
+                        style={{
+                            margin: 0,
+                        }}
+                        colon={false}
+                        label={
+                            <strong>
+                                Save offline
+                            </strong>
+                        }
+                    >
+                        <Switch
+                            checked={app.shouldSaveOffline}
+                            onChange={(): void => {
+                                dispatch({
+                                    type: actions.TOGGLE_OFFLINE_SAVE,
+                                });
+                            }}
+                        />
+                    </Item>
+                </div>
+            </div>
         </div>
     );
 };
