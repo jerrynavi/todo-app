@@ -60,6 +60,7 @@ const AddTodoField: FC<Props> = (props): JSX.Element => {
                             rules={[
                                 {
                                     required: true,
+                                    message: 'What? A ghost task? Not allowed here, sorry.',
                                 },
                                 {
                                     max: INPUT_LIMIT,
