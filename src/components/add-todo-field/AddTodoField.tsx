@@ -1,7 +1,6 @@
 import React, { FC, useState } from 'react';
 import { connect } from 'react-redux';
 import { Form, Input, Row, Col, Button, Typography, Switch } from 'antd';
-import styles from './AddTodoField.module.scss';
 import { AnyAction } from '@reduxjs/toolkit';
 import { actions } from '../../utils';
 import { State } from '../../interfaces/state.interface';
@@ -73,7 +72,11 @@ const AddTodoField: FC<Props> = (props): JSX.Element => {
                                         justifyContent: 'flex-end',
                                     }}
                                 >
-                                    <span className={styles.inputLimit}>
+                                    <span
+                                        style={{
+                                            opacity: 0.7,
+                                        }}
+                                    >
                                         {charsLeft} characters left
                                     </span>
                                 </div>
